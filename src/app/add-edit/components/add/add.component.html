@@ -1,0 +1,20 @@
+
+<div class="add-page">
+  <h1 style="color:black; text-align:center">Add team</h1>
+
+<div class="form">
+
+<form [formGroup]="add_editteamform" >
+  <label style="float:left; text-align:left; color: black">Name
+
+  <input type="text"  formControlName="team_name" placeholder="Name" required/>
+</label>
+
+  <label style="float:left;text-align:left; color:  black">Amount
+
+  <input type="text" formControlName="amount" placeholder="Amount" required/>
+</label>
+  <button type="submit" (click)="addteam(add_editteamform.value)">Add</button>
+</form> 
+</div>
+</div>

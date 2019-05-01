@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<ActionBar title="Sales Master"></ActionBar> 
+
+<FlexboxLayout class="page"> 
+<StackLayout class="form" [class.dark]="!isLoggingIn" [formGroup]="loginform"> 
+<Image src = "~/assets/favicon32x32.png" width="90%"></Image> 
+
+<Label text = "Email"></Label> 
+<TextField hint="Email Address" keyboardType="email" autocorrect="false" autocapitalizationType="none" 
+class="input input-border" formControlName="email"></TextField> 
+
+<Label text = "Password"></Label> 
+<TextField hint="Password" secure="true" class="input input-border" formControlName="password"></TextField> 
+
+<Button text="Sign in" class="btn btn-primary m-t-20" (tap)="submit(loginform.value)"> 
+</Button> 
+</StackLayout> 
+</FlexboxLayout>

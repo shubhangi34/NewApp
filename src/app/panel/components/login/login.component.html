@@ -1,0 +1,65 @@
+<!--    
+   <div class="login-page">
+     <div class="pic" style="display:flex"> 
+      <form class="container" [formGroup]="loginform">
+      <img class="logo" style="height: 20%; padding-left: 80px" src="assets/favicon32x32.png" >
+        <br>
+        <br>
+        <br>
+        <label class="Email-ID">Email ID
+        <input class="Rectangle-3" type="email" formControlName="email" name="email" placeholder="Username"/>
+        <div class="alert1" *ngIf="loginform.controls['email'].touched && loginform.controls['email'].invalid">
+          <span *ngIf="loginform.controls['email'].errors.required">Required</span>
+          <span *ngIf="loginform.controls['email'].errors.pattern">invalid email</span>
+        </div>
+      </label>
+  <br>
+        <label class="Password">Password
+        <input class ="Rectangle-3" type="password" formControlName="password" name="password" placeholder="Password"/>
+           <div class="alert1" *ngIf="!loginform.controls['password'].valid && loginform.controls['password'].touched">
+              <span *ngIf="loginform.controls['password'].errors.required">Required</span>
+        </div>
+      </label>  
+      <br>  
+      <br>   
+            <button class="login"><label class="Sign-In" style="text-align: center" (click)="submit()">Sign-In</label></button>
+            
+          </form>
+    </div> 
+  </div> 
+     -->
+
+     <div class="login-page">
+      <h1 style="color:#27a0ff; text-align:center">Login</h1>
+
+  <div class="form">
+
+    <form [formGroup]="loginform">
+        <img class="logo" style="height: 120px; padding-left: 10px" src="assets/favicon32x32.png" >
+        <br>
+        <br>
+        <br>
+        <label class="Email-ID"  style="text-align: left">Email ID
+        <input class="Rectangle-3" type="email" formControlName="email" name="email" placeholder="Username"/>
+        <div class="alert1" *ngIf="loginform.controls['email'].touched && loginform.controls['email'].invalid">
+          <span *ngIf="loginform.controls['email'].errors.required">Required</span>
+          <span *ngIf="loginform.controls['email'].errors.pattern">invalid email</span>
+        </div>
+      </label>
+  <br>
+        <label class="Password" style="text-align: left">Password
+        <input class ="Rectangle-3" type="password" formControlName="password" name="password" placeholder="Password"/>
+           <div class="alert1" *ngIf="!loginform.controls['password'].valid && loginform.controls['password'].touched">
+              <span *ngIf="loginform.controls['password'].errors.required">Required</span>
+        </div>
+      </label>  
+      <br>  
+      <br>   
+            <button class="login"><label class="Sign-In" style="text-align: center" (click)="submit()">Sign-In</label></button>
+            
+  
+    </form> 
+  </div>
+<!-- </div> -->
+</div>
+<!-- login component view in which login page is being rendered -->
