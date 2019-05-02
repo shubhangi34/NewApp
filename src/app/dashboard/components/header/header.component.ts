@@ -9,14 +9,20 @@ import { ApiService } from '../../../panel/services/api.service';
 })
 export class HeaderComponent implements OnInit {
   logout: any;
+  team_id: any;
 
   constructor(private router : Router, private apiservice: ApiService) { }
 
   ngOnInit() {
   }
+  
   Add(){
-    this.router.navigate(['Add']);
+    this.router.navigate(['/list/add','null'],{
+      queryParams : {'team_name':'', 'amount': ''}
+    });
+
   }
+  
   out(){
     // localStorage.clear();
     // this.router.navigate([""]);

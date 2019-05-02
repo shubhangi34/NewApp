@@ -1,5 +1,5 @@
 export class Team {
     team_id: number;
-    name: string;
+    team_name: string;
     amount : number;
   }

@@ -1,1 +1,12 @@
-<Button text="add works!" class="btn btn-primary"></Button>
+<flexboxlayout> 
+        <StackLayout class="form" [class.dark]="!isLoggingIn" [formGroup]="add_editteamform"> 
+        <Label text="Team"></Label> 
+        <TextField hint="Team name" class="input-field" 
+        autocorrect="false" autocapitalizationType="none" formControlName="team_name"></TextField> 
+        <Label text="Amount"></Label> 
+        <TextField hint="Revenue" secure="true" formControlName="amount"></TextField> 
+        
+        <button text="Add" (tap)="addteam(add_editteamform.value)" class="btn"></button> 
+        
+        </StackLayout> 
+        </flexboxlayout>

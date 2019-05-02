@@ -2,20 +2,10 @@
 <br>
 <br>
 <br>
-
-   
-<!-- <ul class="heroes">
-  <li *ngFor="let t of teamdata" (click)="onSelect(t)"   data-toggle="modal" data-target="#myModal"> -->
-  <!-- <a routerLink="/dashboard/:team_id"></a> -->
-    <!-- <span class="badge">{{t.team_id}}</span>
-     {{t.team_name}}
-     <span class="badge" style="float:right">{{t.amount | currency}}</span>
-  </li>
-</ul> -->
 <div class="box">
   <div class="data">
           
-  <ul *ngFor="let t of teamdata" (click)="onSelect(t)"   data-toggle="modal" data-target="#myModal">
+  <ul *ngFor="let t of teamdata;let i=index" (click)="onSelect(t,i)" data-toggle="modal" data-target="#myModal" >
 
     <span id="name">{{t.team_name}}</span>
   <span id="amount" style="float:right">
@@ -25,4 +15,6 @@
   </ul>
   </div>
   </div>
+  <router-outlet></router-outlet>
 <app-footer></app-footer>
+

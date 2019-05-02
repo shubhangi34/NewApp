@@ -1,10 +1,11 @@
 import { Routes } from '@angular/router';
-
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './dashboard/components/list/list.component';
 import { LoginComponent } from './panel/components/login/login.component';
 import { AddComponent } from './add-edit/components/add/add.component';
-import { UpdateComponent } from './add-edit/components/update/update.component';
+import { HeaderComponent } from './dashboard/components/header/header.component';
+import { FooterComponent } from './dashboard/components/footer/footer.component';
+
 
 export const routes: Routes = [
   {
@@ -19,22 +20,18 @@ export const routes: Routes = [
 {
     path: 'list',
     component: ListComponent,
-},
-{
-    path: 'list/:team_id',
-    component: UpdateComponent,
-},
-{
-    path: 'Add',
-    component: AddComponent,
-},
-{
-  path: 'Update',
-  component: UpdateComponent,
-},
+    children : [{
+      path: 'add/:id',
+      component: AddComponent,
+    }
+  ]
+}
 ];
 export const navigationableComponents = [
   LoginComponent,
   ListComponent,
-  AddComponent
+  AddComponent,
+  HeaderComponent,
+  FooterComponent
+
 ];

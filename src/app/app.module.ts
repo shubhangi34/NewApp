@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './dashboard/components/header/header.component';
 import { FooterComponent } from './dashboard/components/footer/footer.component';
-import { UpdateComponent } from './add-edit/components/update/update.component';
+
 
 
 @NgModule({
@@ -22,7 +22,7 @@ import { UpdateComponent } from './add-edit/components/update/update.component';
     ListComponent,
     HeaderComponent,
     FooterComponent,
-    UpdateComponent
+    
   ],
   imports: [
     BrowserModule,

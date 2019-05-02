@@ -1,20 +1,43 @@
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
 
-<div class="add-page">
-  <h1 style="color:black; text-align:center">Add team</h1>
 
-<div class="form">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" #closeAddExpenseModal
+          routerLink="/list">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="add-page">
+          <h1 style="color:black; text-align:center">{{title}}</h1>
 
-<form [formGroup]="add_editteamform" >
-  <label style="float:left; text-align:left; color: black">Name
+          <div class="form">
 
-  <input type="text"  formControlName="team_name" placeholder="Name" required/>
-</label>
+            <form [formGroup]="add_editteamform">
+              <label style="float:left; text-align:left; color: black">Name
 
-  <label style="float:left;text-align:left; color:  black">Amount
+                <input type="text" formControlName="team_name" placeholder="Name" required />
+              </label>
 
-  <input type="text" formControlName="amount" placeholder="Amount" required/>
-</label>
-  <button type="submit" (click)="addteam(add_editteamform.value)">Add</button>
-</form> 
+              <label style="float:left;text-align:left; color:  black">Amount
+
+                <input type="text" formControlName="amount" placeholder="Amount" required />
+              </label>
+              
+                <p>
+                  <button type="submit" (click)="addteam(add_editteamform.value)">{{title}}</button>
+                </p>
+                <p ><button type="submit" (click)="delete()">Delete</button>
+                </p>
+                <!-- <button type="submit"  (click)="addteam(add_editteamform.value)">Update</button> -->
+
+              
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
+<!-- <p>hiiiiii</p> -->
