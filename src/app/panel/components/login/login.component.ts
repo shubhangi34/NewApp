@@ -27,13 +27,9 @@ export class LoginComponent implements OnInit {
     
     this.apiservice.login(this.loginform.value).subscribe(data =>{
       this.userdata = data;
-    // console.log(this.userdata);
-    // console.log(this.userdata.status);
-
       if(this.userdata.status == 200){
-        // require( "nativescript-localstorage" );
          this.lcs.localstore(this.userdata.body.access_token);
-    // console.log(localStorage.getItem('accessToken'));
+  
       this.router.navigate(['/list']);
 
       }
@@ -48,11 +44,12 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit() {
-  //   if (localStorage.getItem('user_token'))
-  //   {
+    if (localStorage.getItem('accessToken'))
+    {
     
-  //   this.router.navigate(['/dashboard'])
-  //  }
+    this.router.navigate(['/list'])
+   }
 }
+
 
 }

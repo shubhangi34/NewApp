@@ -37,6 +37,11 @@ team_id : any;
        this.teamdata = res.data;
      console.log(this.teamdata);
    })
+  //  if (localStorage.getItem('user_token'))
+  //  {
+   
+  //  this.router.navigate(['/list'])
+  // }
  }
 
  public onCellSwiping(args: ListViewEventData) { 
