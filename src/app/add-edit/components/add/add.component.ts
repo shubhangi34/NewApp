@@ -16,6 +16,7 @@ export class AddComponent implements OnInit {
   outboundClick : boolean;
   teamdata:any;
   title: any;
+  del: any;
   constructor(private fb : FormBuilder, private apiservice : ApiService, private router : Router, private route : ActivatedRoute) { }
 add_editteamform= this.fb.group({
   team_name : [''],
@@ -26,10 +27,15 @@ add_editteamform= this.fb.group({
  this.list();
  if(this.route.snapshot.queryParamMap.get('team_name')== '' && this.route.snapshot.queryParamMap.get('amount')== '' ){
    this.title= "Add Team"
+    
  }
  else{
-   this.title="Update Team"
- }
+   this.title="Update Team";
+   this.del = "Delete";
+   this.add_editteamform.controls['team_name'].setValue(this.route.snapshot.queryParamMap.get('team_name'));
+   this.add_editteamform.controls['amount'].setValue(this.route.snapshot.queryParamMap.get('amount'));
+
+  }
   }
 
 list= function(){
@@ -41,18 +47,24 @@ list= function(){
   addteam= function(data){
     if(this.route.snapshot.queryParamMap.get('team_name')== '' && this.route.snapshot.queryParamMap.get('amount')== '' )
     { 
+    
       this.apiservice.addTeam(this.add_editteamform.value).subscribe(data =>{
         this.newteam = data;
       console.log(this.newteam);
       this.closeAddExpenseModal.nativeElement.click();
-      this.router.navigate(['list'])
+      this.router.navigate(['/list'],{'refresh':true});
+      console.log(this.route.queryParams);
+      // location.reload();
+
        });
     }
     else 
     {
+      // this.refresh = true;
+      // console.log(this.refresh);
       this.i= this.route.snapshot.paramMap.get('id');
       console.log(this.i);
-
+  
       data = {
         team_id:this.teamdata[this.i].team_id,
         team_name : this.add_editteamform.get('team_name').value,
@@ -66,6 +78,14 @@ console.log(response);
 console.log( data.team_name);
         this.teamdata[this.i].team_name = data.team_name;
         this.teamdata[this.i].amount = data.amount;
+       
+        console.log(this.route.queryParams);
+       
+        this.closeAddExpenseModal.nativeElement.click();
+      
+        this.router.navigate(['/list'],{'refresh':true});
+        console.log( this.router.navigate(['/list'],{'refresh':true}));
+        // location.reload();
 // console.log(this.teamdata[this.i]);
       })
     }
@@ -81,12 +101,9 @@ console.log( data.team_name);
     }
     this.apiservice.deleteTeam(data1).subscribe(res =>{
       this.deldata = res;
-      location.reload();
-  //  if(res && res.status==200){
+      this.closeAddExpenseModal.nativeElement.click();
+      this.router.navigate(['/list']);
     
-  //     this.getTeams()
-      
-  //  }
   });
   }
 

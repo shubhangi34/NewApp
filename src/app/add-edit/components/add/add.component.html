@@ -24,15 +24,10 @@
                 <input type="text" formControlName="amount" placeholder="Amount" required />
               </label>
               
-                <p>
-                  <button type="submit" (click)="addteam(add_editteamform.value)">{{title}}</button>
-                </p>
-                <p ><button type="submit" (click)="delete()">Delete</button>
-                </p>
-                <!-- <button type="submit"  (click)="addteam(add_editteamform.value)">Update</button> -->
-
               
-
+                  <button type="submit" class="btnup" (click)="addteam(add_editteamform.value)">{{title}}</button>
+              
+                <button *ngIf="del" type="submit"  class="btndel" (click)="delete()">{{del}}</button>
             </form>
           </div>
         </div>

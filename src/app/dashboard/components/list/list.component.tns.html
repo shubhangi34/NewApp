@@ -1,26 +1,34 @@
-<header> 
-        <app-header></app-header> 
-        </header> 
-        
-        <GridLayout orientation="vertical" rows="*, auto" tkExampleTitle tkToggleNavButton> 
-        <RadListView [items]="teamdata" class="list-group" itemSwipeProgressEnded)="onSwipeCellFinished($event)" 
-        (itemSwipeProgressStarted)="onSwipeCellStarted($event)" (itemSwipeProgressChanged)="onCellSwiping($event)" swipeActions="true"> 
-        <ng-template let-item="item"> 
-        <StackLayout class="list-group-item" orientation="horizontal" style="background-color: white;"> 
-        <GridLayout> 
-        <Label [text]=" item.team_name" (tap)= "editRecord()" horizontalAlignment="left" style="margin:15" ></Label> 
-        <Label [text]=" item.amount" style.textAlignment="right" ></Label> 
-        </GridLayout> 
-        </StackLayout> 
-        </ng-template> 
-        <GridLayout *tkListItemSwipeTemplate columns="*, auto" class="gridLayoutLayout"> 
-        <StackLayout id="delete-view" col="2" style="background-color:red;" class="deleteViewStackLayout" class="bg-primary p-15 m-15" width="120" height="100" (tap)="onRightSwipeClick($event)"> 
-        <Label text="Delete" class="swipeTemplateLabel" verticalAlignment="center" horizontalAlignment="center"></Label> 
-        </StackLayout> 
-        </GridLayout> 
-        </RadListView> 
-        </GridLayout> 
-        
-        <footer> 
-        <app-footer></app-footer> 
-        </footer>
+<header>
+        <app-header></app-header>
+</header>
+
+<GridLayout orientation="vertical" rows="*, auto" tkExampleTitle tkToggleNavButton>
+
+        <RadListView [items]="teamdata" class="list-group" itemSwipeProgressEnded)="onSwipeCellFinished($event)"
+                (itemSwipeProgressStarted)="onSwipeCellStarted($event)"
+                (itemSwipeProgressChanged)="onCellSwiping($event)" swipeActions="true" >
+                <ng-template let-item="item">
+                        <StackLayout class="list-group-item" orientation="horizontal" style="background-color: white;">
+                                <GridLayout>
+                                        <Label [text]=" item.team_name" (tap)="editRecord()" horizontalAlignment="left"
+                                                style="margin:15"></Label>
+                                        <Label [text]=" item.amount" style.textAlignment="right"></Label>
+                                </GridLayout>
+                        </StackLayout>
+                </ng-template>
+                <GridLayout *tkListItemSwipeTemplate columns="*, auto" class="gridLayoutLayout">
+                        <StackLayout id="delete-view" col="2" style="background-color:red;"
+                                class="deleteViewStackLayout" class="bg-primary p-15 m-15" width="120" height="100"
+                                (tap)="onRightSwipeClick($event)">
+                                <Label text="Delete" class="swipeTemplateLabel" verticalAlignment="center"
+                                        horizontalAlignment="center"></Label>
+                        </StackLayout>
+                </GridLayout>
+        </RadListView>
+
+
+</GridLayout>
+
+<footer>
+        <app-footer></app-footer>
+</footer>

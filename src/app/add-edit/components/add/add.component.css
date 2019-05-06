@@ -21,12 +21,12 @@
     border: solid 1px #eceef2;
     background-color: #f4f7f9;
 }
-.form button {
+/* .form button {
     width: 150px;
     height: 40px;
     border-radius: 4px;
     background-color: #27a0ff;
-}
+} */
 
 .form .message {
   margin: 15px 0 0;
@@ -82,4 +82,18 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      
+}
+.btndel{
+  margin-left: 10%;
+  background-color:red;
+  border-radius: 4px;
+  width: 100px;
+  height: 40px;
+}
+.btnup{
+  margin-right: 5%;
+  background-color: #27a0ff;
+  border-radius: 4px;
+  width: 100px;
+  height: 40px;
 }

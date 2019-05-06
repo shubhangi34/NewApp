@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Team } from './Team';
 import { ApiService } from '../../../panel/services/api.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { TEMPORARY_NAME } from '@angular/compiler/src/render3/view/util';
 import { ListViewEventData, RadListView } from "nativescript-ui-listview";
 import { View } from 'tns-core-modules/ui/core/view';
+import { query } from '@angular/core/src/render3';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -18,31 +18,41 @@ team_id : any;
  sticky: boolean = false;
    // teamdata= Teamdata;
    menuPosition: any;
+   queryParams : any;
    teamdata: any;
-   constructor(private apiservice: ApiService,private router:Router, private activatedroute: ActivatedRoute) { }
+   constructor(private apiservice: ApiService,private router:Router, private route: ActivatedRoute) { }
  
    selectedTeam: Team;
  
  onSelect(t: Team,i){
    this.selectedTeam = t;
    this.router.navigate(['/list/add',i],{
-    queryParams : {'team_name': t.team_name, 'amount': t.amount}
-   });
-  
-   // console.log(this.selectedTeam.team_id);
+    queryParams : { 'team_name': t.team_name, 'amount': t.amount}
+   }
+   );
+  console.log(this.route.queryParams);
+   
  }
+ 
    ngOnInit() {
      // let id = parseInt(this.activatedroute.snapshot.paramMap.get('team_id'))
-     this.apiservice.getTeams().subscribe(res =>{
-       this.teamdata = res.data;
-     console.log(this.teamdata);
-   })
-  //  if (localStorage.getItem('user_token'))
-  //  {
+     this.route.queryParams.subscribe(params=>{
+      this.apiservice.getTeams().subscribe(res =>{
+        this.teamdata = res.data;
+        console.log("updated");
+      // console.log(this.teamdata);
+      
+    });
+     })
+      this.apiservice.getTeams().subscribe(res =>{
+        this.teamdata = res.data;
+      console.log(this.teamdata);
+
+    });
    
-  //  this.router.navigate(['/list'])
-  // }
+    
  }
+
 
  public onCellSwiping(args: ListViewEventData) { 
   const swipeLimits = args.data.swipeLimits; 

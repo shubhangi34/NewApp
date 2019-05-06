@@ -13,8 +13,6 @@ export class LoginComponent implements OnInit {
 
   code:number;
   alert1="Required field!";
-
-
   constructor(private fb: FormBuilder ,private apiservice: ApiService,private router:Router, private lcs:LocalstorageService) { }
 
   loginform= this.fb.group({

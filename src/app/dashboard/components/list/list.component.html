@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <app-header></app-header>
 <br>
 <br>
@@ -8,13 +9,15 @@
   <ul *ngFor="let t of teamdata;let i=index" (click)="onSelect(t,i)" data-toggle="modal" data-target="#myModal" >
 
     <span id="name">{{t.team_name}}</span>
-  <span id="amount" style="float:right">
+  <span id="amount"  >
     {{t.amount  | currency}}
 </span>
+
+
     <!-- <div id="add">{{t.amount}}</div> -->
   </ul>
   </div>
   </div>
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>
 <app-footer></app-footer>
 
